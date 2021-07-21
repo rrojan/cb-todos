@@ -15,7 +15,7 @@ export default function Tabs(...args) {
     }
 
     // handle setting active tab on DOM
-    document.addEventListener('DOMContentLoaded', _ => tabs.children[activeTab].classList.add('active'));
+    document.addEventListener('DOMContentLoaded', () => tabs.children[activeTab].classList.add('active'));
 
     tabs.addEventListener('click', e => {
         const newActiveTab = e.target.getAttribute('data-counter');
