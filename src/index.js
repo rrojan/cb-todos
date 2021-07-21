@@ -1,7 +1,8 @@
 import './style.css';
-import Header from './Header';
-import Tabs from './Tabs';
-import TodoList from './TodoList';
+import Header from './components/Header';
+import Tabs from './components/Tabs';
+import TodoList from './components/TodoList';
+import CompletedTodos from './components/CompletedTodos';
 
 const displayEl = (displayEl, removeEl) => {
     displayEl.display();
@@ -14,15 +15,18 @@ function Root() {
     const root = document.createElement('div');
 
     const todoListEl = TodoList();
+    const completedTodosEl = CompletedTodos();
+    completedTodosEl.hide();
 
     root.appendChild(Header());
     root.appendChild(
         Tabs(
-            ['Todos', () => displayEl(todoListEl, [])],
-            ['Completed', () => displayEl(todoListEl, [todoListEl])]
+            ['Todos', () => displayEl(todoListEl, [completedTodosEl])],
+            ['Completed', () => displayEl(completedTodosEl, [todoListEl])]
         )
     );
     root.appendChild(todoListEl);
+    root.appendChild(completedTodosEl);
 
     return root;
 }

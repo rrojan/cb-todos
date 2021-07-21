@@ -13,5 +13,12 @@ html, body {
 }
 
 .active {
-    background-color: white;
+    background-color: rgba(238, 238, 238, 0.15);
+}
+
+
+.tab {
+    border-radius: 10px 0 0 0;
+    min-width: 130px;
+    text-align: center;
 }

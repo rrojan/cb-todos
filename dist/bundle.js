@@ -16,7 +16,7 @@
   \*************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);\n// Imports\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, \"* {\\n    box-sizing: border-box;\\n}\\n\\nhtml, body {\\n    margin: 0;\\n    padding: 0;\\n}\\n\\n/* backgrounds and colors */\\n.bg-grey {\\n    background-color: #eee;\\n}\\n\\n.active {\\n    background-color: white;\\n}\", \"\"]);\n// Exports\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack://todo/./src/style.css?./node_modules/css-loader/dist/cjs.js");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);\n// Imports\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, \"* {\\n    box-sizing: border-box;\\n}\\n\\nhtml, body {\\n    margin: 0;\\n    padding: 0;\\n}\\n\\n/* backgrounds and colors */\\n.bg-grey {\\n    background-color: #eee;\\n}\\n\\n.active {\\n    background-color: rgba(238, 238, 238, 0.15);\\n}\\n\\n\\n.tab {\\n    border-radius: 10px 0 0 0;\\n    min-width: 130px;\\n    text-align: center;\\n}\", \"\"]);\n// Exports\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack://todo/./src/style.css?./node_modules/css-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -100,43 +100,63 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, style) {\
 
 /***/ }),
 
-/***/ "./src/Header.js":
-/*!***********************!*\
-  !*** ./src/Header.js ***!
-  \***********************/
+/***/ "./src/bindToNode.js":
+/*!***************************!*\
+  !*** ./src/bindToNode.js ***!
+  \***************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Header)\n/* harmony export */ });\nfunction Header() {\n    const header = document.createElement('header');\n    const heading = document.createElement('h1');\n    heading.innerText = 'Todo!!';\n    heading.classList.add('mb-5', 'mt-3', 'h1', 'h1-responsive', 'text-center');\n    header.appendChild(heading);\n\n    return header;\n}\n\n//# sourceURL=webpack://todo/./src/Header.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ bindToNode)\n/* harmony export */ });\nfunction bindToNode(node, name, fn) {\n    node[name] = fn.bind(node);\n}\n\n//# sourceURL=webpack://todo/./src/bindToNode.js?");
 
 /***/ }),
 
-/***/ "./src/Tab.js":
-/*!********************!*\
-  !*** ./src/Tab.js ***!
-  \********************/
+/***/ "./src/components/CompletedTodos.js":
+/*!******************************************!*\
+  !*** ./src/components/CompletedTodos.js ***!
+  \******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Tab)\n/* harmony export */ });\nfunction Tab(title, onClick) {\n    const tab = document.createElement('span');\n\n    tab.addEventListener('click', onClick);\n    tab.innerText = title;\n    tab.setAttribute('role', 'button'); // equivalent to pointer:cursor\n    tab.classList.add('px-4', 'mx-1', 'py-3', 'border', 'border-bottom-0', 'bg-grey');\n    \n    return tab;\n}\n\n//# sourceURL=webpack://todo/./src/Tab.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ CompletedTodos)\n/* harmony export */ });\n/* harmony import */ var _bindToNode__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../bindToNode */ \"./src/bindToNode.js\");\n\n\nfunction CompletedTodos() {\n    const todoList = document.createElement('div');\n    const _todos = [];\n\n    todoList.classList.add('container', 'py-5', 'border', 'border-1');\n\n    todoList.innerHTML = '<ul><li>completed1</li><li>completed2</li><li>completed3</li></ul>'\n\n    const display = () => todoList.style.display = 'block';\n    const hide = () => todoList.style.display = 'none';\n    const addTodo = (...titles) => titles.forEach(title => _todos.add(title));\n\n    (0,_bindToNode__WEBPACK_IMPORTED_MODULE_0__.default)(todoList, 'display', display);\n    (0,_bindToNode__WEBPACK_IMPORTED_MODULE_0__.default)(todoList, 'hide', hide);\n    (0,_bindToNode__WEBPACK_IMPORTED_MODULE_0__.default)(todoList, 'addTodo', addTodo);\n\n    return todoList;\n}\n\n//# sourceURL=webpack://todo/./src/components/CompletedTodos.js?");
 
 /***/ }),
 
-/***/ "./src/Tabs.js":
-/*!*********************!*\
-  !*** ./src/Tabs.js ***!
-  \*********************/
+/***/ "./src/components/Header.js":
+/*!**********************************!*\
+  !*** ./src/components/Header.js ***!
+  \**********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Tabs)\n/* harmony export */ });\n/* harmony import */ var _Tab__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Tab */ \"./src/Tab.js\");\n\n\nfunction Tabs(...args) {\n    const tabs = document.createElement('div');\n    tabs.classList.add('d-flex', 'justify-content-center');\n\n    for (let list of args) {\n        const tab = (0,_Tab__WEBPACK_IMPORTED_MODULE_0__.default)(list[0], list[1]);\n        tabs.appendChild(tab);\n    }\n\n    return tabs;\n}\n\n//# sourceURL=webpack://todo/./src/Tabs.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Header)\n/* harmony export */ });\nfunction Header() {\n    const header = document.createElement('header');\n    const heading = document.createElement('h1');\n    heading.innerText = 'Todo!!';\n    heading.classList.add('mb-5', 'mt-3', 'h1', 'h1-responsive', 'text-center');\n    header.appendChild(heading);\n\n    return header;\n}\n\n//# sourceURL=webpack://todo/./src/components/Header.js?");
 
 /***/ }),
 
-/***/ "./src/TodoList.js":
-/*!*************************!*\
-  !*** ./src/TodoList.js ***!
-  \*************************/
+/***/ "./src/components/Tab.js":
+/*!*******************************!*\
+  !*** ./src/components/Tab.js ***!
+  \*******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ TodoList)\n/* harmony export */ });\nfunction TodoList() {\n    const todoList = document.createElement('div');\n\n    todoList.classList.add('my-5');\n\n    todoList.innerHTML = '<ul><li>something</li><li>something</li><li>something</li></ul>'\n\n    const display = () => todoList.style.display = 'block';\n    const hide = () => todoList.style.display = 'none';\n\n    function _bindToNode(node, name, fn) {\n        node[name] = fn.bind(node);\n    }\n\n    _bindToNode(todoList, 'display', display);\n    _bindToNode(todoList, 'hide', hide);\n\n    return todoList;\n}\n\n//# sourceURL=webpack://todo/./src/TodoList.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Tab)\n/* harmony export */ });\n/* harmony import */ var _bindToNode__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../bindToNode */ \"./src/bindToNode.js\");\n\n\nfunction Tab(title, onClick) {\n    const tab = document.createElement('span');\n    tab.id = title.toLowerCase().replace(/\\s/g, '-');\n\n    const setElementActive = setTrue => {\n        if (setTrue) {\n            tab.classList.add('active');\n        } else {\n            tab.classList.remove('active');\n        }\n    }\n    ;(0,_bindToNode__WEBPACK_IMPORTED_MODULE_0__.default)(tab, 'setElementActive', setElementActive);\n\n    tab.addEventListener('click', onClick);\n    tab.innerText = title;\n    tab.setAttribute('role', 'button'); // equivalent to pointer:cursor\n    tab.classList.add('tab', 'px-4', 'py-3', 'border', 'border-bottom-0', 'border-1', 'bg-grey');\n\n    \n\n    return tab;\n}\n\n//# sourceURL=webpack://todo/./src/components/Tab.js?");
+
+/***/ }),
+
+/***/ "./src/components/Tabs.js":
+/*!********************************!*\
+  !*** ./src/components/Tabs.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Tabs)\n/* harmony export */ });\n/* harmony import */ var _Tab__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Tab */ \"./src/components/Tab.js\");\n\n\nfunction Tabs(...args) {\n    const tabs = document.createElement('div');\n    tabs.classList.add('d-flex', 'justify-content-center');\n\n    let activeTab = 0;\n\n    let counter = 0;\n    for (let list of args) {\n        const tab = (0,_Tab__WEBPACK_IMPORTED_MODULE_0__.default)(list[0], list[1]);\n        tab.setAttribute('data-counter', counter);\n        counter++;\n        tabs.appendChild(tab);\n    }\n\n    // handle setting active tab on DOM\n    document.addEventListener('DOMContentLoaded', _ => tabs.children[activeTab].classList.add('active'));\n\n    tabs.addEventListener('click', e => {\n        const newActiveTab = e.target.getAttribute('data-counter');\n        if (activeTab !== newActiveTab) {\n            console.log('active:', activeTab);\n            console.log('new:', newActiveTab);\n            // Remove currently active tab\n            tabs.children[activeTab].classList.remove('active');\n            // Add new active tab\n            tabs.children[newActiveTab].classList.add('active');\n            \n            activeTab = newActiveTab;\n        }\n    });\n\n    return tabs;\n}\n\n//# sourceURL=webpack://todo/./src/components/Tabs.js?");
+
+/***/ }),
+
+/***/ "./src/components/TodoList.js":
+/*!************************************!*\
+  !*** ./src/components/TodoList.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ TodoList)\n/* harmony export */ });\n/* harmony import */ var _bindToNode__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../bindToNode */ \"./src/bindToNode.js\");\n\n\nfunction TodoList() {\n    const todoList = document.createElement('div');\n    const _todos = [];\n\n    todoList.classList.add('container', 'py-5', 'border', 'border-1');\n\n    todoList.innerHTML = '<ul><li>something</li><li>something</li><li>something</li></ul>'\n\n    const display = () => todoList.style.display = 'block';\n    const hide = () => todoList.style.display = 'none';\n    const addTodo = (...titles) => titles.forEach(title => _todos.add(title));\n\n    (0,_bindToNode__WEBPACK_IMPORTED_MODULE_0__.default)(todoList, 'display', display);\n    (0,_bindToNode__WEBPACK_IMPORTED_MODULE_0__.default)(todoList, 'hide', hide);\n    (0,_bindToNode__WEBPACK_IMPORTED_MODULE_0__.default)(todoList, 'addTodo', addTodo);\n\n    return todoList;\n}\n\n//# sourceURL=webpack://todo/./src/components/TodoList.js?");
 
 /***/ }),
 
@@ -146,7 +166,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Header */ \"./src/Header.js\");\n/* harmony import */ var _Tabs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Tabs */ \"./src/Tabs.js\");\n/* harmony import */ var _TodoList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./TodoList */ \"./src/TodoList.js\");\n\n\n\n\n\nconst displayEl = (displayEl, removeEl) => {\n    displayEl.display();\n    removeEl.forEach(el => {\n        el.hide();\n    });\n}\n\nfunction Root() {\n    const root = document.createElement('div');\n\n    const todoListEl = (0,_TodoList__WEBPACK_IMPORTED_MODULE_3__.default)();\n\n    root.appendChild((0,_Header__WEBPACK_IMPORTED_MODULE_1__.default)());\n    root.appendChild(\n        (0,_Tabs__WEBPACK_IMPORTED_MODULE_2__.default)(\n            ['Todos', () => displayEl(todoListEl, [])],\n            ['Completed', () => displayEl(todoListEl, [todoListEl])]\n        )\n    );\n    root.appendChild(todoListEl);\n\n    return root;\n}\n\ndocument.body.appendChild(Root());\n\n//# sourceURL=webpack://todo/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _components_Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Header */ \"./src/components/Header.js\");\n/* harmony import */ var _components_Tabs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Tabs */ \"./src/components/Tabs.js\");\n/* harmony import */ var _components_TodoList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/TodoList */ \"./src/components/TodoList.js\");\n/* harmony import */ var _components_CompletedTodos__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/CompletedTodos */ \"./src/components/CompletedTodos.js\");\n\n\n\n\n\n\nconst displayEl = (displayEl, removeEl) => {\n    displayEl.display();\n    removeEl.forEach(el => {\n        el.hide();\n    });\n}\n\nfunction Root() {\n    const root = document.createElement('div');\n\n    const todoListEl = (0,_components_TodoList__WEBPACK_IMPORTED_MODULE_3__.default)();\n    const completedTodosEl = (0,_components_CompletedTodos__WEBPACK_IMPORTED_MODULE_4__.default)();\n    completedTodosEl.hide();\n\n    root.appendChild((0,_components_Header__WEBPACK_IMPORTED_MODULE_1__.default)());\n    root.appendChild(\n        (0,_components_Tabs__WEBPACK_IMPORTED_MODULE_2__.default)(\n            ['Todos', () => displayEl(todoListEl, [completedTodosEl])],\n            ['Completed', () => displayEl(completedTodosEl, [todoListEl])]\n        )\n    );\n    root.appendChild(todoListEl);\n    root.appendChild(completedTodosEl);\n\n    return root;\n}\n\ndocument.body.appendChild(Root());\n\n//# sourceURL=webpack://todo/./src/index.js?");
 
 /***/ })
 
